@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lungvision"
+version = "0.1.0"
+description = "LungVision AI: multi-model deep learning framework for lung disease detection"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["src"]
