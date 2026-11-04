@@ -1,0 +1,24 @@
+# Chest X-ray disease models
+name: xray
+manifest: data/manifests/xray_split.csv
+
+# One output per label (multi-label). Emphysema is the X-ray proxy for COPD.
+# Pneumonia and Effusion have NIH doctor-drawn boxes, so they also get IoU scores.
+labels: [Pneumonia, Tuberculosis, Fibrosis, Emphysema, Effusion]
+
+image_size: 320          # 224 is faster; 320-384 helps small findings
+batch_size: 32
+epochs: 20
+lr: 0.0003
+patience: 5
+num_workers: 4
+clahe: true
+pretrained: true         # ImageNet weights (needs internet on Kaggle/Colab)
+
+# Models compared in the paper. Any timm name works.
+models:
+  - densenet121
+  - efficientnet_b0
+  - resnet50
+  - convnext_tiny
+  - swin_tiny_patch4_window7_224   # transformer; uses image_size as its input size

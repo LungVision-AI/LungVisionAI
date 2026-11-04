@@ -1,0 +1,16 @@
+# CT (2D axial slices) disease models
+name: ct
+manifest: data/manifests/ct_split.csv
+labels: [COVID-19, Pneumonia, Fibrosis]
+image_size: 256
+batch_size: 32
+epochs: 15
+lr: 0.0003
+patience: 4
+num_workers: 4
+clahe: false             # CT slices already have a lung window applied
+pretrained: true
+models:
+  - densenet121
+  - efficientnet_b0
+  - resnet50

@@ -1,0 +1,13 @@
+# Modality checker: is the upload a chest X-ray (0) or a CT slice (1)?
+name: modality
+manifest: data/manifests/modality_split.csv
+labels: [CT]
+image_size: 224
+batch_size: 64
+epochs: 3
+lr: 0.0003
+patience: 2
+num_workers: 4
+clahe: false
+pretrained: true
+models: [resnet18]
